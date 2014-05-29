@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="de" ng-app="hikingApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Hiking App</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="date.js"></script>
+    <script src="time.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+    <div class="panel panel-default" ng-controller="OverviewController as overviewCtrl">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Übersicht</div>
+
+        <!-- Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Datum</th>
+                    <th>Startzeit</th>
+                    <th>Gipfel</th>
+                    <th>Ende</th>
+                    <th>Gesamtzeit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="trip in overviewCtrl.trips">
+                    <td>{{trip.name}}</td>
+                    <td>{{trip.date.toString('dd.MM.yyyy')}}</td>
+                    <td>{{trip.start.toString('HH:mm')}}</td>
+                    <td>{{trip.goal.toString('HH:mm')}}</td>
+                    <td>{{trip.end.toString('HH:mm')}}</td>
+                    <td>{{overviewCtrl.getDuration(trip.start, trip.end)}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>Nothing here {{'yet' + '!'}}</p>
+
+</body>
+
+</html>
