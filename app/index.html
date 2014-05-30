@@ -32,17 +32,17 @@
             <tbody>
                 <tr ng-repeat="trip in overviewCtrl.trips">
                     <td>{{trip.name}}</td>
-                    <td>{{trip.date.toString('dd.MM.yyyy')}}</td>
-                    <td>{{trip.start.toString('HH:mm')}}</td>
-                    <td>{{trip.goal.toString('HH:mm')}}</td>
-                    <td>{{trip.end.toString('HH:mm')}}</td>
-                    <td>{{overviewCtrl.getDuration(trip.start, trip.end)}}</td>
+                    <td>{{trip.date | date: 'dd.MM.yyyy'}}</td>
+                    <td>{{trip.start | date: 'HH:mm'}}</td>
+                    <td>{{trip.goal | date: 'HH:mm'}}</td>
+                    <td>{{trip.end | date: 'HH:mm'}}</td>
+                    <td>
+                        <!--<trip-duration duration='overviewCtrl.duration(trip)'></trip-duration>-->
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
-
-    <p>Nothing here {{'yet' + '!'}}</p>
 
 </body>
 

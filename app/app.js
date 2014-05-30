@@ -1,6 +1,16 @@
 (function () {
     var app = angular.module('hikingApp', []);
 
+    app.directive('tripDuration', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'trip-duration.html',
+            scope: {
+                duration: '='
+            }
+        };
+    });
+
     app.controller('OverviewController', function () {
 
         this.trips = [{
@@ -18,10 +28,14 @@
                 end: Date.parse('2014-05-24 16:56')
         }];
 
-        this.getDuration = function (start, end) {
-            console.log(start + ' ' +
-                end);
-            return new TimeSpan(end - start);
+        this.duration = function (trip) {
+            alert(trip);
+            timeSpan = new TimeSpan(Date.parse(trip.end) - Date.parse(trip.start));
+            alert(timeSpan);
+            return {
+                hours: timeSpan.hours,
+                minutes: timeSpan.minutes
+            };
         };
 
     });
