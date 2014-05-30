@@ -1,12 +1,12 @@
 hiking-app
 ==========
 ## Todos
-* i18n
+* better i18n
 * trips service
-* filtering
+* better date filtering
 * order by duration
 * unit test
 * e2e tests
-* new trip functionality
+* "new trip" functionality
 * backend functionality
 * show pics
