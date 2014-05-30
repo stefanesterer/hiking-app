@@ -1,34 +1,84 @@
-<!doctype html>
-<html lang="de" ng-app="hikingApp">
+<!DOCTYPE html>
+<html lang="en" ng-app="hikingApp">
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="manage hiking trips">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
     <title>Hiking App</title>
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <script src="date.js"></script>
-    <script src="time.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/starter-template.css" rel="stylesheet">
+
+    <script src="lib/date.js"></script>
+    <script src="lib/time.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.10/angular.min.js"></script>
     <script src="lib/angular-locale_de-at.js"></script>
     <script src="app.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
 
-    <div class="panel panel-default" ng-controller="OverviewController as overviewCtrl">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Übersicht</div>
-
-        <div>
-            Suche:
-            <input ng-model="searchText">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">The Hiking App</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a>
+                    </li>
+                    <li><a href="#newtrip">Neuer Trip</a>
+                    </li>
+                    <li><a href="#manage">Managing Trips</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
+    </div>
 
-        <table class="table">
+    <div class="container" ng-controller="OverviewController as overviewCtrl">
+
+        <div class="starter-template">
+
+            <h1>Übersicht aller Trips</h1>
+            <p class="lead">Bekomme eine Übersicht aller von dir getätigter Wandertrips. Sortiere und filtere!</p>
+
+
+        </div>
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon glyphicon glyphicon-search"></span>
+            <input ng-model="searchText" type="text" class="form-control" placeholder="Suchen...">
+        </div>
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th> <a href ng-click="overviewCtrl.sort('name')">Name</a> 
+                    <th> <a href ng-click="overviewCtrl.sort( 'name') ">Name</a> 
                     </th>
-                    <th><a href ng-click="overviewCtrl.sort('start')">Datum</a>
+                    <th><a href ng-click="overviewCtrl.sort( 'start') ">Datum</a>
                     </th>
                     <th>Startzeit</th>
                     <th>Gipfel</th>
@@ -37,7 +87,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="trip in overviewCtrl.trips | filter: myTripFilter | orderBy: predicate: reverse">
+                <tr ng-repeat="trip in overviewCtrl.trips | filter: myTripFilter | orderBy: predicate: reverse ">
                     <td>{{trip.name}}</td>
                     <td>{{trip.start | date: 'dd MMMM yyyy'}}</td>
                     <td>{{trip.start | date: 'HH:mm'}}</td>
@@ -50,7 +100,14 @@
             </tbody>
         </table>
     </div>
+    <!-- /.container -->
 
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>
