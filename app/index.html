@@ -17,12 +17,16 @@
         <!-- Default panel contents -->
         <div class="panel-heading">Übersicht</div>
 
+        <pre>Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre>
+
         <!-- Table -->
         <table class="table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Datum</th>
+                    <th> <a href ng-click="overviewCtrl.sort('name')">Name</a> 
+                    </th>
+                    <th><a href ng-click="overviewCtrl.sort('start')">Datum</a>
+                    </th>
                     <th>Startzeit</th>
                     <th>Gipfel</th>
                     <th>Ende</th>
@@ -30,7 +34,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="trip in overviewCtrl.trips">
+                <tr ng-repeat="trip in overviewCtrl.trips | orderBy: predicate: reverse">
                     <td>{{trip.name}}</td>
                     <td>{{trip.start | date: 'dd.MM.yyyy'}}</td>
                     <td>{{trip.start | date: 'HH:mm'}}</td>

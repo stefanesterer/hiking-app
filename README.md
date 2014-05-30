@@ -4,4 +4,6 @@ hiking-app
 * i18n
 * trips service
 * filtering
-* ordering
+* order by duration
+* unit test
+* e2e tests
