@@ -1,0 +1,15 @@
+{
+  "name": "hiking-app",
+  "description": "A single page application for managing hiking apps",
+  "version": "0.0.1",
+  "homepage": "https://github.com/stefanesterer/hiking-app",
+  "license": "MIT",
+  "private": "GPLv3",
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-route": "1.2.x",
+    "angular-loader": "1.2.x",
+    "angular-mocks": "~1.2.x",
+    "html5-boilerplate": "~4.3.0"
+  }
+}

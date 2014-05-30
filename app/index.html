@@ -12,16 +12,14 @@
     <title>Hiking App</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
     <link href="css/starter-template.css" rel="stylesheet">
 
-    <script src="lib/date.js"></script>
-    <script src="lib/time.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.10/angular.min.js"></script>
-    <script src="lib/angular-locale_de-at.js"></script>
-    <script src="app.js"></script>
+    <script src="bower_components/moment/min/moment-with-langs.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -76,9 +74,9 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th> <a href ng-click="overviewCtrl.sort( 'name') ">Name</a> 
+                    <th> <a href ng-click="sort( 'name') ">Name</a> 
                     </th>
-                    <th><a href ng-click="overviewCtrl.sort( 'start') ">Datum</a>
+                    <th><a href ng-click="sort( 'start') ">Datum</a>
                     </th>
                     <th>Startzeit</th>
                     <th>Gipfel</th>
@@ -89,10 +87,10 @@
             <tbody>
                 <tr ng-repeat="trip in overviewCtrl.trips | filter: myTripFilter | orderBy: predicate: reverse ">
                     <td>{{trip.name}}</td>
-                    <td>{{trip.start | date: 'dd MMMM yyyy'}}</td>
-                    <td>{{trip.start | date: 'HH:mm'}}</td>
-                    <td>{{trip.goal | date: 'HH:mm'}}</td>
-                    <td>{{trip.end | date: 'HH:mm'}}</td>
+                    <td>{{trip.start | moment: 'D MMMM YYYY'}}</td>
+                    <td>{{trip.start | moment: 'HH:mm'}}</td>
+                    <td>{{trip.goal | moment: 'HH:mm'}}</td>
+                    <td>{{trip.end | moment: 'HH:mm'}}</td>
                     <td>
                         <trip-duration trip='trip'></trip-duration>
                     </td>
@@ -106,8 +104,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
