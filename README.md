@@ -7,3 +7,6 @@ hiking-app
 * order by duration
 * unit test
 * e2e tests
+* new trip functionality
+* backend functionality
+* show pics
