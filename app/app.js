@@ -6,8 +6,14 @@
             restrict: 'E',
             templateUrl: 'trip-duration.html',
             scope: {
-                duration: '='
-            }
+                trip: '='
+            },
+            controller: function ($scope) {
+                timeSpan = new TimeSpan($scope.trip.end - $scope.trip.start);
+                $scope.hours = timeSpan.hours;
+                $scope.minutes = timeSpan.minutes;
+
+            },
         };
     });
 
@@ -19,7 +25,7 @@
                 start: undefined,
                 goal: undefined,
                 end: undefined
-        },
+            },
             {
                 name: 'Drachenwand',
                 date: Date.parse('2014-05-24'),
@@ -27,16 +33,5 @@
                 goal: Date.parse('2014-05-24 15:21'),
                 end: Date.parse('2014-05-24 16:56')
         }];
-
-        this.duration = function (trip) {
-            alert(trip);
-            timeSpan = new TimeSpan(Date.parse(trip.end) - Date.parse(trip.start));
-            alert(timeSpan);
-            return {
-                hours: timeSpan.hours,
-                minutes: timeSpan.minutes
-            };
-        };
-
     });
 })();
