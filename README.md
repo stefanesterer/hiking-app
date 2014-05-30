@@ -1,5 +1,7 @@
 hiking-app
 ==========
 ## Todos
-* Remove start date property of trip
-* check null values
+* i18n
+* trips service
+* filtering
+* ordering
