@@ -43,5 +43,25 @@
             }
         };
 
+        // todo: allow searching for year/month/day and exact date
+        // unit testing necessary
+        $scope.myTripFilter = function (trip) {
+
+            if ($scope.searchText == undefined) {
+                return true;
+            }
+            if (trip.name.toLowerCase().indexOf($scope.searchText.toLowerCase()) != -1) {
+                return true;
+            }
+            searchDate = Date.parse($scope.searchText);
+            if (searchDate != null) {
+                tripDate = trip.start;
+                console.log(searchDate);
+                return searchDate.getFullYear() == tripDate.getFullYear() || searchDate.month == tripDate.getMonth || searchDate.day == tripDate.getDay;
+            }
+
+            return false;
+        };
+
     });
 })();

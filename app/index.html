@@ -8,6 +8,7 @@
     <script src="date.js"></script>
     <script src="time.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.10/angular.min.js"></script>
+    <script src="lib/angular-locale_de-at.js"></script>
     <script src="app.js"></script>
 </head>
 
@@ -17,9 +18,11 @@
         <!-- Default panel contents -->
         <div class="panel-heading">Übersicht</div>
 
-        <pre>Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre>
+        <div>
+            Suche:
+            <input ng-model="searchText">
+        </div>
 
-        <!-- Table -->
         <table class="table">
             <thead>
                 <tr>
@@ -34,9 +37,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="trip in overviewCtrl.trips | orderBy: predicate: reverse">
+                <tr ng-repeat="trip in overviewCtrl.trips | filter: myTripFilter | orderBy: predicate: reverse">
                     <td>{{trip.name}}</td>
-                    <td>{{trip.start | date: 'dd.MM.yyyy'}}</td>
+                    <td>{{trip.start | date: 'dd MMMM yyyy'}}</td>
                     <td>{{trip.start | date: 'HH:mm'}}</td>
                     <td>{{trip.goal | date: 'HH:mm'}}</td>
                     <td>{{trip.end | date: 'HH:mm'}}</td>
