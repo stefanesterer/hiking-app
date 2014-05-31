@@ -1,0 +1,32 @@
+<div class="starter-template">
+    <h1>Hinzufügen eines neuen Wandertrips</h1>
+    <p class="lead">Hier kannst du einen neuen Wandertrip hinzufügen!</p>
+</div>
+
+<form role="form">
+    <div class="form-group">
+        <label for="tripName">Name des Wandertrips</label>
+        <input type="email" class="form-control" id="tripName" placeholder="Name eingeben...">
+    </div>
+
+    <div class="form-group">
+        <label for="startPicture">Foto des Wandertripanfangs</label>
+        <input type="file" id="startPicture">
+        <p class="help-block">Aus der Fotoinfo wird das Startdatum extrahiert</p>
+    </div>
+
+    <div class="form-group">
+        <label for="startPicture">Foto des Gipfels</label>
+        <input type="file" id="goalPicture">
+        <p class="help-block">Aus der Fotoinfo wird der Zeitpunkt des Erreichens des Gipfels extrahiert</p>
+    </div>
+
+    <div class="form-group">
+        <label for="endPicture">Foto des Wanderendes</label>
+        <input type="file" id="endPicture">
+        <p class="help-block">Aus der Fotoinfo wird der Zeitpunkt des Wanderendes extrahiert</p>
+    </div>
+
+    <button type="submit" class="btn btn-default">Fertig</button>
+
+</form>

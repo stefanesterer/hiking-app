@@ -1,0 +1,35 @@
+<div class="starter-template">
+    <h1>Übersicht aller Trips</h1>
+    <p class="lead">Bekomme eine Übersicht aller von dir getätigter Wandertrips. Sortiere und filtere!</p>
+</div>
+
+<div class="input-group input-group-lg">
+    <span class="input-group-addon glyphicon glyphicon-search"></span>
+    <input ng-model="searchText" type="text" class="form-control" placeholder="Suchen...">
+</div>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th> <a href ng-click="sort( 'name') ">Name</a> 
+            </th>
+            <th><a href ng-click="sort( 'start') ">Datum</a>
+            </th>
+            <th>Startzeit</th>
+            <th>Gipfel</th>
+            <th>Ende</th>
+            <th>Gesamtzeit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="trip in trips | filter: myTripFilter | orderBy: predicate: reverse ">
+            <td>{{trip.name}}</td>
+            <td>{{trip.start | moment: 'D MMMM YYYY'}}</td>
+            <td>{{trip.start | moment: 'HH:mm'}}</td>
+            <td>{{trip.goal | moment: 'HH:mm'}}</td>
+            <td>{{trip.end | moment: 'HH:mm'}}</td>
+            <td>
+                <trip-duration trip='trip'></trip-duration>
+            </td>
+        </tr>
+    </tbody>
+</table>

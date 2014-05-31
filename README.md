@@ -1,6 +1,7 @@
 hiking-app
 ==========
 ## Todos
+* MenuController (managing active menu item)
 * better i18n
 * trips service
 * better date filtering
