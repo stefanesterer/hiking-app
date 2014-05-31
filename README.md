@@ -10,3 +10,10 @@ hiking-app
 * "new trip" functionality
 * backend functionality
 * show pics
+* login system
+
+## Used technology
+* AngularJS
+* Bower
+* npm
+* moment.js
